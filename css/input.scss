@@ -17,14 +17,33 @@ font: 2em $font-stack;
 
 }
 
+h3 {
+font: 1.5em $font-stack;
+
+}
+
 #wrapper{
-margin: 30px auto;
-width:800px;
+margin: 150px auto;
+width:930px;
+padding-top: 200;
 
 }
 
 header {
 width:1024px;
 margin: 30px auto;
+padding-left: 90px;
+
+}
+
+#tagline{
+float:left;
+
+}
+
+#search {
+width:200px;
+margin: 30px auto;
+float:right;
 
 }
