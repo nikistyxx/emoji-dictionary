@@ -1,0 +1,30 @@
+/* And this is a comment in CSS, which will appear in the final CSS file. */
+
+/* Usage - Stick into the top of your SCSS sheet and @include where needed for cross browser transitions. Credit: Andy Howells
+*/
+
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+
+}
+
+h2 {
+font: 2em $font-stack;
+
+}
+
+#wrapper{
+margin: 30px auto;
+width:800px;
+
+}
+
+header {
+width:1024px;
+margin: 30px auto;
+
+}
