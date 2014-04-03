@@ -5,6 +5,7 @@
 
 $font-stack:    Helvetica, sans-serif;
 $primary-color: #333;
+$image-wrapper: 90%;
 
 body {
   font: 100% $font-stack;
@@ -22,17 +23,35 @@ font: 1.5em $font-stack;
 
 }
 
+#boring{
+width: 300;
+display:inline-block;
+vertical-align: top; 
+float:left;
+
+
+}
+
 #wrapper{
-margin: 150px auto;
+// margin: 150px auto;
 width:930px;
 padding-top: 200;
+
+
+}
+
+.imagew{
+height:$image-wrapper;
 
 }
 
 header {
 width:1024px;
 margin: 30px auto;
-padding-left: 90px;
+height: 130px;
+padding-left: 100px;
+
+// padding-left: 90px;
 
 }
 
@@ -42,8 +61,8 @@ float:left;
 }
 
 #search {
-width:200px;
-margin: 30px auto;
+width:300px;
+margin: 0px 30px auto;
 float:right;
 
 }
