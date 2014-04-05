@@ -27,15 +27,23 @@ font: 1.5em $font-stack;
 width: 300;
 display:inline-block;
 vertical-align: top; 
-float:left;
+// float:left;
 
 
 }
 
-#wrapper{
-// margin: 150px auto;
-width:930px;
-padding-top: 200;
+.wrapper{
+margin: 10px auto;
+width:920px;
+float:none;
+
+
+}
+.formwrapper{
+margin: 10px auto;
+width:800px;
+float:none;
+padding-left:10px;
 
 
 }
