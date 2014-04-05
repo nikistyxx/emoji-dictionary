@@ -35,5 +35,16 @@ header {
 
 #search {
   width: 300px;
-  margin: 0px 30px auto;
+  margin: 33px 120px auto;
   float: right; }
+
+label, .searcht {
+  font: 18px Helvetica, sans-serif; }
+
+.Add button {
+  float: right;
+  margin: 0 0 0 10px; }
+
+#searchs {
+  width: 220px;
+  float: left; }

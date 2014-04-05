@@ -51,8 +51,6 @@ margin: 30px auto;
 height: 130px;
 padding-left: 100px;
 
-// padding-left: 90px;
-
 }
 
 #tagline{
@@ -62,7 +60,25 @@ float:left;
 
 #search {
 width:300px;
-margin: 0px 30px auto;
+margin: 33px 120px auto;
 float:right;
 
 }
+
+label,.searcht{font: 18px $font-stack;
+
+}
+
+.Add button{
+
+float: right;
+margin: 0 0 0 10px;
+
+}
+#searchs {
+width: 220px;
+// margin: 0 auto;
+float:left;
+
+}
+
