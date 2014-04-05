@@ -31,8 +31,13 @@
         <div><p>Adjective (descriptive word)</p>
                     <input type="text" placeholder="fluffy" name="Noun"/>
         </div>
-        <div class="Add">
-            <button type="submit">Submit</button>
+        <div><br>Please type and example sentence using one or all of the words above.<br>
+        </div>
+        <div>              
+            <br><textarea name="ExampleSentence" placeholder="The fluffy dog ran far."> </textarea>
+        </div>
+        <div class="submit">
+            <br><button type="submit">Submit</button>
         </div>
         </div>
 

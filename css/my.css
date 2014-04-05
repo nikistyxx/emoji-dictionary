@@ -23,9 +23,8 @@ h3 {
 
 .formwrapper {
   margin: 10px auto;
-  width: 800px;
-  float: none;
-  padding-left: 10px; }
+  width: 900px;
+  padding-left: 80px; }
 
 .imagew {
   height: 90%; }
@@ -34,7 +33,7 @@ header {
   width: 1024px;
   margin: 30px auto;
   height: 130px;
-  padding-left: 100px; }
+  padding-left: 80px; }
 
 #tagline {
   float: left; }
@@ -53,4 +52,11 @@ label, .searcht {
 
 #searchs {
   width: 220px;
+  float: left; }
+
+textarea {
+  height: 100px;
+  width: 500px; }
+
+#submit {
   float: left; }
