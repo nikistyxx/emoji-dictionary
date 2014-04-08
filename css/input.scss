@@ -14,17 +14,20 @@ body {
 }
 
 h2 {
-font: 2em $font-stack;
+font: 2.3em $font-stack;
+margin-bottom: 0;
+margin-top: 65px;
 
 }
 
 h3 {
-font: 1.5em $font-stack;
+font: 1.4em $font-stack;
+margin-top: 0;
 
 }
 
 #boring{
-width: 300;
+width: 680px;
 display:inline-block;
 vertical-align: top; 
 // float:left;
@@ -41,7 +44,7 @@ float:none;
 }
 .formwrapper{
 margin: 10px auto;
-width:900px;
+width:635px;
 // float:none;
 padding-left: 80px;
 
@@ -51,6 +54,11 @@ padding-left: 80px;
 .imagew{
 height:$image-wrapper;
 
+}
+
+#wtf{
+float: left;
+padding-right: 20px;
 }
 
 header {
@@ -68,7 +76,7 @@ float:left;
 
 #search {
 width:300px;
-margin: 33px 120px auto;
+margin: 33px 20px auto;
 float:right;
 
 }
@@ -94,8 +102,26 @@ textarea {
 height: 100px;
    width: 500px;
 }
+
 #submit {
 float:left;
 
 }
+#home{
+float:right;
+margin-top: 20px;		
+}
+
+#book{
+width: 280px;
+margin-top: 20px;	
+}
+
+.imgword{
+float:none;
+width:160px;
+margin: 0 0 0 250px;
+
+}
+
 

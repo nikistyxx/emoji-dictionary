@@ -1,8 +1,10 @@
         <header>
             <div id="boring">
-                <h2>Emoji Dictionary</h2>
-        
-                <h3>Click on an Emoji to add to it's definition</h3>
+                <div id="wtf">
+                    <img src="img/wtf.jpg">
+                </div>
+                    <h2>The Emoji Dictionary</h2>
+                <h3>Discover Emoji Definitions and Add Your Own!</h3>
             </div>
             <div id="search">
                 <label for="EmojiCode">Search for Emoji</label><br><br>

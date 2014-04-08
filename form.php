@@ -21,24 +21,39 @@
        
        <?php include 'header.php'; ?>
 <!--this is where the form goes-->
+        <div class="imgword">
+            <img src="img/emoji10.jpg" height="80px";> :blush:
+        </div>
         <div class="formwrapper">
-        <div><p>Noun (person, place or thing)</p>
-                    <input type="text" placeholder="dog" name="Noun"/>
-        </div>
-        <div><p>Verb (action word)</p>
-                    <input type="text" placeholder="to run" name="Noun"/>
-        </div>
-        <div><p>Adjective (descriptive word)</p>
-                    <input type="text" placeholder="fluffy" name="Noun"/>
-        </div>
-        <div><br>Please type and example sentence using one or all of the words above.<br>
-        </div>
-        <div>              
-            <br><textarea name="ExampleSentence" placeholder="The fluffy dog ran far."> </textarea>
-        </div>
-        <div class="submit">
-            <br><button type="submit">Submit</button>
-        </div>
+            
+            <div><p>Noun (person, place or thing)</p>
+                        <input type="text" placeholder="dog" name="Noun"/>
+            </div>
+            <div><p>Verb (action word)</p>
+                        <input type="text" placeholder="to run" name="Noun"/>
+            </div>
+            <div><p>Adjective (descriptive word)</p>
+                        <input type="text" placeholder="fluffy" name="Noun"/>
+            </div>
+            <div><br>What does this emoji mean to you?.<br>
+            </div>
+            <div>              
+                <br><textarea name="DefineSentence" placeholder="The fluffy dog ran far."> </textarea>
+            </div>
+            <div><br>Please type and example sentence using one or all of the words above.<br>
+            </div>
+            <div>              
+                <br><textarea name="ExampleSentence" placeholder="The fluffy dog ran far."> </textarea>
+            </div>
+            <div class="submit">
+                <br><button type="submit">Submit</button>
+            </div>
+            <div id="book">
+                <br><a href="./"><img src="img/book.jpg" height="60px">
+                <div id="home">
+                    Return to Dictionary Home</a>
+                </div>
+            </div>
         </div>
 
          <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

@@ -6,13 +6,16 @@ body {
   color: #333333; }
 
 h2 {
-  font: 2em Helvetica, sans-serif; }
+  font: 2.3em Helvetica, sans-serif;
+  margin-bottom: 0;
+  margin-top: 65px; }
 
 h3 {
-  font: 1.5em Helvetica, sans-serif; }
+  font: 1.4em Helvetica, sans-serif;
+  margin-top: 0; }
 
 #boring {
-  width: 300;
+  width: 680px;
   display: inline-block;
   vertical-align: top; }
 
@@ -23,11 +26,15 @@ h3 {
 
 .formwrapper {
   margin: 10px auto;
-  width: 900px;
+  width: 635px;
   padding-left: 80px; }
 
 .imagew {
   height: 90%; }
+
+#wtf {
+  float: left;
+  padding-right: 20px; }
 
 header {
   width: 1024px;
@@ -40,7 +47,7 @@ header {
 
 #search {
   width: 300px;
-  margin: 33px 120px auto;
+  margin: 33px 20px auto;
   float: right; }
 
 label, .searcht {
@@ -60,3 +67,16 @@ textarea {
 
 #submit {
   float: left; }
+
+#home {
+  float: right;
+  margin-top: 20px; }
+
+#book {
+  width: 280px;
+  margin-top: 20px; }
+
+.imgword {
+  float: none;
+  width: 160px;
+  margin: 0 0 0 250px; }
