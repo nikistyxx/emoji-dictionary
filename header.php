@@ -1,7 +1,7 @@
         <header>
             <div id="boring">
                 <div id="wtf">
-                    <img src="img/wtf.jpg">
+                    <a href="index.php"><img src="img/wtf.jpg"></a>
                 </div>
                     <h2>The Emoji Dictionary</h2>
                 <h3>Discover Emoji Definitions and Add Your Own!</h3>

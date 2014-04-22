@@ -28,20 +28,20 @@
             <div> 
                 
             </div>
-            <div><p>Noun: blush</p>
+            <div><p>1. Blush, noun.</p>
                        
             </div>
-            <div><p>Verb: to blush</p>
+            <div><p>2. To Blush, verb.</p>
                         
             </div>
-            <div><p>Adjective: pleased</p>
+            <div><p>3. Sheepish, adj. </p>
                         
             </div>
             <div><br>Definition:<br>To blush. To express blushing and embaressment.<br>
             </div>
             
             <div><br>Example Sentence:<br>He gave me flowers and I blushed at the attention.
-            <div><br><h3>+ Add to the emoji dictionary!</h3>
+            <div><br><a href="form.php"><h3>+ Add to the emoji dictionary!</h3></a>
                         
             </div>
             
