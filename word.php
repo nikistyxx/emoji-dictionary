@@ -41,7 +41,7 @@
             </div>
             
             <div><br>Example Sentence:<br>He gave me flowers and I blushed at the attention.
-            <div><br><a href="form.php"><h3>+ Add to the emoji dictionary!</h3></a>
+            <div><br><a href="form.php"><img src="img/add.jpg"</a>
                         
             </div>
             
