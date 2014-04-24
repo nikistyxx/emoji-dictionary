@@ -14,6 +14,10 @@ h3 {
   font: 1.4em Helvetica, sans-serif;
   margin-top: 0; }
 
+h4 {
+  font: 1em Helvetica, sans-serif;
+  font-weight: bold; }
+
 #boring {
   width: 680px;
   display: inline-block;
@@ -25,9 +29,34 @@ h3 {
   float: none; }
 
 .formwrapper {
+  max-width: 620px; }
+
+.wordwrapper {
   margin: 10px auto;
-  width: 635px;
+  width: 800px;
+  height: 100%;
   padding-left: 80px; }
+
+.addword {
+  margin: 0 0 0 10px;
+  height: auto;
+  width: auto;
+  max-width: 200px;
+  max-height: 200px;
+  float: right; }
+
+#addbut {
+  height: auto;
+  width: auto;
+  max-width: 200px;
+  max-height: 200px; }
+
+table {
+  width: 100%; }
+
+td {
+  text-align: left;
+  padding: 8px; }
 
 .imagew {
   height: 90%; }
@@ -53,10 +82,6 @@ header {
 label, .searcht {
   font: 18px Helvetica, sans-serif; }
 
-.Add button {
-  float: right;
-  margin: 0 0 0 10px; }
-
 #searchs {
   width: 220px;
   float: left; }
@@ -74,7 +99,8 @@ textarea {
 
 #book {
   width: 280px;
-  margin-top: 20px; }
+  margin: 10px auto;
+  padding-top: 100px; }
 
 .imgword {
   float: none;

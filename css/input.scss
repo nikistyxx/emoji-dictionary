@@ -26,6 +26,12 @@ margin-top: 0;
 
 }
 
+h4 {
+font: 1em $font-stack;
+font-weight: bold;
+
+}
+
 #boring{
 width: 680px;
 display:inline-block;
@@ -43,12 +49,47 @@ float:none;
 
 }
 .formwrapper{
-margin: 10px auto;
-width:635px;
+
+max-width:620px;
 // float:none;
+
+}
+
+.wordwrapper{
+margin: 10px auto;
+width:800px;
+height:100%;
 padding-left: 80px;
+}
+
+.addword {
+margin: 0 0 0 10px;
+height:auto; 
+width:auto; 
+max-width:200px; 
+max-height:200px;
+float: right;
+
+}
+
+#addbut{
+
+height:auto; 
+width:auto; 
+max-width:200px; 
+max-height:200px;
+}
+
+table{
+
+width:100%;
+}
 
 
+td
+{
+text-align:left;
+padding:8px;
 }
 
 .imagew{
@@ -85,12 +126,8 @@ label,.searcht{font: 18px $font-stack;
 
 }
 
-.Add button{
 
-float: right;
-margin: 0 0 0 10px;
 
-}
 #searchs {
 width: 220px;
 // margin: 0 auto;
@@ -114,7 +151,11 @@ margin-top: 20px;
 
 #book{
 width: 280px;
-margin-top: 20px;	
+margin: 10px auto;
+padding-top:100px;
+
+
+
 }
 
 .imgword{

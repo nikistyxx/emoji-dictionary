@@ -23,27 +23,39 @@
 <!--this is where the form goes-->
         <div class="imgword">
             <img src="img/emoji10.jpg" height="80px";> :blush:
+
         </div>
-        <div class="formwrapper">
-            <div> 
-                
+        <div class="wordwrapper">
+            <div class="addword"><a href="form.php"><img src="img/add.jpg" id="addbut"></a>           
             </div>
-            <div><p>1. Blush, noun.</p>
-                       
-            </div>
-            <div><p>2. To Blush, verb.</p>
-                        
-            </div>
-            <div><p>3. Sheepish, adj. </p>
-                        
-            </div>
-            <div><br>Definition:<br>To blush. To express blushing and embaressment.<br>
+            <div class="formwrapper">
+                 
+                <table >
+                    <tr>
+                        <td><h4>Noun</h4></td>
+                        <td>To Blush</td>
+                    </tr>
+                    <tr>
+                        <td><h4>Adjective</h4></td>
+                        <td>Flushed</td>
+                    </tr>
+                    <tr>
+                         <td><h4>Verb</h4></td>
+                        <td>To blush</td>
+                    </tr>
+                    <tr>
+                         <td><h4>Define Sentence</h4></td>
+                        <td>This emoji means to blush or be embaressed. </td>
+                    </tr>
+                    <tr>
+                         <td><h4>Example Sentence</h4></td>
+                        <td>I blushed with pleasure when she brought me flowers.</td>
+                    </tr>
+                </table>
+               
             </div>
             
-            <div><br>Example Sentence:<br>He gave me flowers and I blushed at the attention.
-            <div><br><a href="form.php"><img src="img/add.jpg"</a>
-                        
-            </div>
+        </div>
             
             <div id="book">
                 <br><a href="./"><img src="img/book.jpg" height="60px">

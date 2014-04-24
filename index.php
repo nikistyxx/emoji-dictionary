@@ -23,11 +23,11 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <?php include 'header.php'; ?>
+        <?php include 'header.php' ?>
 
         <div class="wrapper">
 
-            <a href="word.php"><img src="img/emoji10.jpg" height="80px";></a>
+            <a href="word.php"><img src="img/emoji10.jpg" height="80px"></a>
             <img src="img/emoji11.jpg" height="80px";>
             <img src="img/emoji13.jpg" height="80px";>
             <img src="img/emoji14.jpg" height="80px";>
