@@ -50,7 +50,8 @@ catch( Exception $error ) {
 
    try {
       $db = new PDO("mysql:host=$database_hostname; dbname=$database_name", $database_username, $database_password);
-      $statement=$db->prepare( "SELECT * FROM smilingface" );
+      $statement=$db->prepare( "SELECT * FROM  smilingface" );
+
       $statement->execute();
 
       // Return an entire table’s worth
@@ -62,16 +63,21 @@ catch( Exception $error ) {
          echo "         <tr>\n";
           echo "            <th>Noun</th><td>";
           while ($row = $statement->fetch()) {
+            if ($row['noun'] != NULL) {
         echo "{$row['noun']}, \n";
           }
+        }
          echo "         </td></tr>\n";
          //verb array
           echo "         <tr>\n";
           echo "            <th>Verb</th><td>";
           $statement->execute();
+          
           while ($row = $statement->fetch()) {
+            if ($row['verb'] != NULL) {
          echo "{$row['verb']}, \n";
           }
+        }
          echo "         </td></tr>\n";
 
           //adjective array
@@ -79,7 +85,9 @@ catch( Exception $error ) {
           echo "            <th>Adjective</th><td>";
           $statement->execute();
           while ($row = $statement->fetch()) {
+            if ($row['adj'] != NULL) {
          echo "{$row['adj']}, \n";
+          }
           }
          echo "         </td></tr>\n";
          //def array
@@ -87,14 +95,18 @@ catch( Exception $error ) {
           echo "            <th>Definition</th><td> ";
           $statement->execute();
           while ($row = $statement->fetch()) {
+            if ($row['def'] != NULL) {
          echo"  ". nl2br( $row['def'] ) . " \n";
           }
+        }
          echo "         </td></tr>\n";
          //def array
           echo "         <tr>\n";
           echo "            <th>Example of Use</th><td> ";
           $statement->execute();
           while ($row = $statement->fetch()) {
+            if ($row['example'] != NULL) {
+            }
          echo"  ". nl2br( $row['example'] ) . " \n";
           }
          echo "         </td></tr>\n";
