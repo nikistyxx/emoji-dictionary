@@ -1,8 +1,11 @@
+<?php
+session_start();
+date_default_timezone_set( "America/New_York" );
+include "inc/insert.php";
+?>
+
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html> 
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,39 +25,59 @@
        <?php include 'header.php'; ?>
 <!--this is where the form goes-->
         <div class="imgword">
-            <img src="img/emoji10.jpg" height="80px";> :blush:
+            
         </div>
         
         <div class="formwrapper">
-            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" accept-charset="utf-8">
+            <img src="img/emoji10.jpg" height="80px">
+            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>"  accept-charset="utf-8">
+               <!--  <input type="hidden" name="EmojiCode" id="SMILING FACE WITH SMILING EYES" readonly="readonly" /> -->
                 <div><p>Noun (person, place or thing)</p>
-                            <input type="text" placeholder="dog" name="Noun"/>
+                     <input type="text" placeholder="dog" name="noun"/>
                 </div>
                 <div><p>Verb (action word)</p>
-                            <input type="text" placeholder="to run" name="Verb"/>
+                      <input type="text" placeholder="to run" name="verb"/>
                 </div>
                 <div><p>Adjective (descriptive word)</p>
-                            <input type="text" placeholder="fluffy" name="Adjective"/>
+                      <input type="text" placeholder="fluffy" name="adj"/>
                 </div>
                 <div><br>What does this emoji mean to you?.<br>
                 </div>
                 <div>              
-                    <br><textarea name="DefineSentence" placeholder="The fluffy dog ran far."> </textarea>
+                    <br><textarea name="def" placeholder="The fluffy dog ran far."> </textarea>
                 </div>
                 <div><br>Please type and example sentence using one or all of the words above.<br>
                 </div>
                 <div>              
-                    <br><textarea name="ExampleSentence" placeholder="The fluffy dog ran far."> </textarea>
+                    <br><textarea name="example" placeholder="The fluffy dog ran far."> </textarea>
                 </div>
                 <div class="submit">
+                    
                     <br><button type="submit">Submit</button>
                 </div>
             </form> 
+            <?php 
+                if( white_list() ) {
+                     $noun = ( strlen( $_POST["noun"] ) > 0 ) ?
+            htmlentities( trim( $_POST["noun"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
+                    $verb = ( strlen( $_POST["verb"] ) > 0 ) ?
+            htmlentities( trim( $_POST["verb"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
+                    $adj = ( strlen( $_POST["adj"] ) > 0 ) ?
+            htmlentities( trim( $_POST["adj"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
+                    $def = ( strlen( $_POST["def"] ) > 0 ) ?
+            htmlentities( trim( $_POST["def"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
+                    $example = ( strlen( $_POST["example"] ) > 0 ) ?
+            htmlentities( trim( $_POST["example"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
+
+            insert( $noun, $verb, $adj, $def, $example );
+                }
+            ?>
+            
                 <div id="book">
                     <br><a href="./"><img src="img/book.jpg" height="60px">Return to Dictionary Home</a>
                 </div>  
         </div>
-        
+       
          <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>

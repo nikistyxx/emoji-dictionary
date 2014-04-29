@@ -29,7 +29,8 @@ h4 {
   float: none; }
 
 .formwrapper {
-  max-width: 620px; }
+  max-width: 620px;
+  margin: 10px auto; }
 
 .wordwrapper {
   margin: 10px auto;
@@ -52,11 +53,15 @@ h4 {
   max-height: 200px; }
 
 table {
-  width: 100%; }
+  float: top; }
 
-td {
+tr {
   text-align: left;
-  padding: 8px; }
+  padding: 15px; }
+
+  td {
+  text-align: left;
+  padding: 10px; }
 
 .imagew {
   height: 90%; }

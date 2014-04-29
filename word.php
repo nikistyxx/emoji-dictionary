@@ -19,18 +19,21 @@
     </head>
     <body>
        
-       <?php include 'header.php'; ?>
+       <?php include 'header.php'; 
+            include 'inc/insert.php';
+            ?>
 <!--this is where the form goes-->
         <div class="imgword">
-            <img src="img/emoji10.jpg" height="80px";> :blush:
+            <img src="img/emoji10.jpg" height="80px";> 
 
         </div>
         <div class="wordwrapper">
             <div class="addword"><a href="form.php"><img src="img/add.jpg" id="addbut"></a>           
             </div>
-            <div class="formwrapper">
-                 
-                <table >
+                <?php
+                print_posts();
+                ?> 
+                <!-- <table >
                     <tr>
                         <td><h4>Noun</h4></td>
                         <td>To Blush</td>
@@ -51,9 +54,7 @@
                          <td><h4>Example Sentence</h4></td>
                         <td>I blushed with pleasure when she brought me flowers.</td>
                     </tr>
-                </table>
-               
-            </div>
+                </table> -->
             
         </div>
             
