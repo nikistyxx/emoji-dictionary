@@ -1,3 +1,29 @@
+<?php
+session_start();
+
+
+if( !isset( $_GET['action'] ) ) {
+   $_GET['action'] = "register";
+   header( "Location: home.php" );
+}
+
+include "includes/main.php";
+
+if( isset( $_GET['action'] ) )
+   if( $_GET['action'] == "login" ) {
+      $action_value = "login.php";
+      $subheading = $button_value = "Login";
+   }
+   else
+      if( $_GET['action'] == "register" ) {
+         $action_value = "register.php";
+         $subheading = $button_value = "Register";
+      }
+session_start();
+date_default_timezone_set( "America/New_York" );
+include "inc/config.php";
+ include "inc/insert.php";
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -18,71 +44,8 @@
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-        <!-- Add your site or application content here -->
-        <?php include 'header.php' ?>
-
-        <div class="wrapper">
-
-            <a href="word.php"><img src="img/emoji10.jpg" height="80px"></a>
-            <img src="img/emoji11.jpg" height="80px";>
-            <img src="img/emoji13.jpg" height="80px";>
-            <img src="img/emoji14.jpg" height="80px";>
-            <img src="img/emoji15.jpg" height="80px";>
-            <img src="img/emoji16.jpg" height="80px";>
-            <img src="img/emoji17.jpg" height="80px";>
-            <img src="img/emoji18.jpg" height="80px";>
-            <img src="img/emoji19.jpg" height="80px";>
-            <img src="img/emoji20.jpg" height="80px";>
-            <img src="img/emoji21.jpg" height="80px";>
-            <img src="img/emoji22.jpg" height="80px";>
-            <img src="img/emoji23.jpg" height="80px";>
-            <img src="img/emoji24.jpg" height="80px";>
-            <img src="img/emoji25.jpg" height="80px";>
-            <img src="img/emoji26.jpg" height="80px";>
-            <img src="img/emoji27.jpg" height="80px";>
-            <img src="img/emoji28.jpg" height="80px";>
-            <img src="img/emoji29.jpg" height="80px";>
-            <img src="img/emoji30.jpg" height="80px";>
-            <img src="img/emoji31.jpg" height="80px";>
-            <img src="img/emoji32.jpg" height="80px";>
-            <img src="img/emoji33.jpg" height="80px";>
-            <img src="img/emoji34.jpg" height="80px";>
-            <img src="img/emoji35.jpg" height="80px";>
-            <img src="img/emoji36.jpg" height="80px";>
-            <img src="img/emoji37.jpg" height="80px";>
-            <img src="img/emoji38.jpg" height="80px";>
-            <img src="img/emoji39.jpg" height="80px";>
-            <img src="img/emoji40.jpg" height="80px";>
-            <img src="img/emoji41.jpg" height="80px";>
-            <img src="img/emoji42.jpg" height="80px";>
-            <img src="img/emoji43.jpg" height="80px";>
-            <img src="img/emoji44.jpg" height="80px";>
-            <img src="img/emoji45.jpg" height="80px";>
-            <img src="img/emoji46.jpg" height="80px";>
-            <img src="img/emoji47.jpg" height="80px";>
-            <img src="img/emoji48.jpg" height="80px";>
-            <img src="img/emoji49.jpg" height="80px";>
-            <img src="img/emoji50.jpg" height="80px";>
-            <img src="img/emoji51.jpg" height="80px";>
-            <img src="img/emoji52.jpg" height="80px";>
-            <img src="img/emoji53.jpg" height="80px";>
-            <img src="img/emoji54.jpg" height="80px";>
-            <img src="img/emoji55.jpg" height="80px";>
-            <img src="img/emoji56.jpg" height="80px";>
-            <img src="img/emoji57.jpg" height="80px";>
-            <img src="img/emoji58.jpg" height="80px";>
-            <img src="img/emoji59.jpg" height="80px";>
-            <img src="img/emoji60.jpg" height="80px";>
-            <img src="img/emoji61.jpg" height="80px";>
-            <img src="img/emoji62.jpg" height="80px";>
-            <img src="img/emoji63.jpg" height="80px";>
-            <img src="img/emoji64.jpg" height="80px";>
-
-
+       
+          
 
         </div>
 

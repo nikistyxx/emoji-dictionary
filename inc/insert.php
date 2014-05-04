@@ -37,11 +37,41 @@ function white_list()
              ":example" => $example
              ) );  
          ChromePhp::log('FML!');
+
          } 
 
 catch( Exception $error ) {
       die("Insert failed: " . $error->getMessage());
    }
+
+  }
+
+  function test( $PHP_SELF, $noun )
+  {
+      require "config.php";
+      try {
+        ChromePhp::log('Hello console!');
+         $db = new PDO("mysql:host=$database_hostname; dbname=$database_name", $database_username, $database_password); 
+       
+       $statement = $db->prepare( "INSERT INTO smilingface (EmojiCode, noun) VALUES (smilingface, :noun)" );
+       
+         $statement->execute( array(
+             "PHP_SELF" => PHP_SELF, 
+             ":noun" => $noun, 
+        
+             ) );  
+         ChromePhp::log('FML!');
+         } 
+
+catch( Exception $error ) {
+      die("Insert failed: " . $error->getMessage());
+   }
+  }
+
+function redirect(){
+  if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            header('Location: word.php');
+ }
   }
 
   function print_posts()
@@ -50,15 +80,27 @@ catch( Exception $error ) {
 
    try {
       $db = new PDO("mysql:host=$database_hostname; dbname=$database_name", $database_username, $database_password);
-      $statement=$db->prepare( "SELECT * FROM  smilingface" );
+      
+       ChromePhp::log('print posts works!');
+      // $statement=$db->prepare( 'SELECT * FROM  noun WHERE EmojiCode =' . $emoji);
+        $statement=$db->prepare( 'SELECT noun FROM  noun');
 
       $statement->execute();
 
       // Return an entire table’s worth
-     
-         echo "<div class=\"post\">";
-         echo "   <table>\n";
+
+        $emoji = $_GET['emoji'];
+        echo "<div class=\"post\">";
+         echo"<div id='big'><img src=img/" ;  
+                echo "$emoji \n";
+                echo "  ></div>\n";
+         
+          echo "   <table>\n";
          echo "      <tbody>\n";
+          echo "         <tr>\n";
+
+        
+       
          //noun array
          echo "         <tr>\n";
           echo "            <th>Noun</th><td>";
@@ -67,6 +109,7 @@ catch( Exception $error ) {
         echo "{$row['noun']}, \n";
           }
         }
+      
          echo "         </td></tr>\n";
          //verb array
           echo "         <tr>\n";
@@ -95,9 +138,9 @@ catch( Exception $error ) {
           echo "            <th>Definition</th><td> ";
           $statement->execute();
           while ($row = $statement->fetch()) {
-            if ($row['def'] != NULL) {
+           
          echo"  ". nl2br( $row['def'] ) . " \n";
-          }
+          
         }
          echo "         </td></tr>\n";
          //def array

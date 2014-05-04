@@ -69,8 +69,12 @@ include "inc/insert.php";
                     $example = ( strlen( $_POST["example"] ) > 0 ) ?
             htmlentities( trim( $_POST["example"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
 
+
             insert( $noun, $verb, $adj, $def, $example );
+            redirect();
+
                 }
+        
             ?>
             
                 <div id="book">
