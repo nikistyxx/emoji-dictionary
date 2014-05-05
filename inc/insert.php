@@ -82,14 +82,15 @@ function redirect(){
       $db = new PDO("mysql:host=$database_hostname; dbname=$database_name", $database_username, $database_password);
       
        ChromePhp::log('print posts works!');
-      // $statement=$db->prepare( 'SELECT * FROM  noun WHERE EmojiCode =' . $emoji);
-        $statement=$db->prepare( 'SELECT noun FROM  noun');
 
-      $statement->execute();
+        $emoji = $_GET['emoji'];
+      $statement=$db->prepare( "SELECT * FROM  noun WHERE EmojiCode = '$emoji'");
+        // foreach ($db->prepare( 'SELECT noun FROM  noun WHERE EmojiCode = ' . $emoji) as $row)
+
+       $statement->execute();
 
       // Return an entire table’s worth
 
-        $emoji = $_GET['emoji'];
         echo "<div class=\"post\">";
          echo"<div id='big'><img src=img/" ;  
                 echo "$emoji \n";
@@ -109,9 +110,11 @@ function redirect(){
         echo "{$row['noun']}, \n";
           }
         }
+        
       
          echo "         </td></tr>\n";
          //verb array
+         $statement=$db->prepare( "SELECT * FROM  verb WHERE EmojiCode = '$emoji'");
           echo "         <tr>\n";
           echo "            <th>Verb</th><td>";
           $statement->execute();
@@ -124,6 +127,7 @@ function redirect(){
          echo "         </td></tr>\n";
 
           //adjective array
+         $statement=$db->prepare( "SELECT * FROM  adjective WHERE EmojiCode = '$emoji'");
           echo "         <tr>\n";
           echo "            <th>Adjective</th><td>";
           $statement->execute();
@@ -133,7 +137,9 @@ function redirect(){
           }
           }
          echo "         </td></tr>\n";
+
          //def array
+         $statement=$db->prepare( "SELECT * FROM  define WHERE EmojiCode = '$emoji'");
           echo "         <tr>\n";
           echo "            <th>Definition</th><td> ";
           $statement->execute();
@@ -143,7 +149,9 @@ function redirect(){
           
         }
          echo "         </td></tr>\n";
-         //def array
+
+         //example array
+         $statement=$db->prepare( "SELECT * FROM  example WHERE EmojiCode = '$emoji'");
           echo "         <tr>\n";
           echo "            <th>Example of Use</th><td> ";
           $statement->execute();
