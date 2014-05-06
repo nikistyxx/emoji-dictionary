@@ -32,7 +32,78 @@ include "inc/config.php";
         <!-- Add your site or application content here -->
         <?php include 'header.php';
            ?>
+
+        <?php
+ //This activates the div with the form
+                if (isset($_GET['form']))
+                    //safe checks? 
+                    {
+                ?>
+            <div class="formwrapper">
+                <?php
+                $emoji = $_GET['form'];
+            echo"<img src=img/" ;  
+                echo "$emoji \n";
+                echo "  height='80px'>\n";
+
+                ?>
+            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>"  accept-charset="utf-8">
+                <input method="post" type="hidden" value="<?php echo $emoji ?>" name="emoji"/>
+                <div><p>Noun (person, place or thing)</p>
+                     <input type="text" placeholder="dog" name="noun"/>
+                </div>
+                <!-- <div><p>Verb (action word)</p>
+                      <input type="text" placeholder="to run" name="verb"/>
+                </div>
+                <div><p>Adjective (descriptive word)</p>
+                      <input type="text" placeholder="fluffy" name="adjective"/>
+                </div>
+                <div><br>What does this emoji mean to you?.<br>
+                </div>
+                <div>              
+                    <br><textarea name="define" placeholder="The fluffy dog ran far."> </textarea>
+                </div>
+                <div><br>Please type and example sentence using one or all of the words above.<br>
+                </div>
+                <div>              
+                    <br><textarea name="example" placeholder="The fluffy dog ran far."> </textarea>
+                </div> -->
+                <div class="submit">
+                    
+                    <br><button type="submit">Submit</button>
+                </div>
+            </form> 
+            <?php 
+                if( white_list() ) {
+                    $emoji = ( strlen( $_POST["emoji"] ) > 0 ) ?
+            htmlentities( trim( $_POST["emoji"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
+                     $noun = ( strlen( $_POST["noun"] ) > 0 ) ?
+            htmlentities( trim( $_POST["noun"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
+            //         $verb = ( strlen( $_POST["verb"] ) > 0 ) ?
+            // htmlentities( trim( $_POST["verb"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
+            //         $adjective = ( strlen( $_POST["adjective"] ) > 0 ) ?
+            // htmlentities( trim( $_POST["adjective"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
+            //         $define = ( strlen( $_POST["define"] ) > 0 ) ?
+            // htmlentities( trim( $_POST["define"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
+            //         $example = ( strlen( $_POST["example"] ) > 0 ) ?
+            // htmlentities( trim( $_POST["example"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
+
+
+            insertnoun( $emoji, $noun );
+            // redirect();
+
+                }
+            }
+        
+            ?>
+            
+                 
+        </div>
+            
+           
+        
  <?php
+ //This activates the div with the info about each emoji or print
                 if (isset($_GET['emoji']))
                     //safe checks? 
                     {
@@ -40,7 +111,15 @@ include "inc/config.php";
         
         
               <div class="wordwrapper">
-            <div class="addword"><a href="form.php"><img src="img/add.jpg" id="addbut"></a>           
+            <div class="addword">
+
+       
+                <?php
+                echo "<a href='", $_SERVER['PHP_SELF'];
+                 echo "?form=",   $_GET['emoji'];
+                 echo "'>";
+                 ?>
+                <img src="img/add.jpg" id="addbut"></a>           
             </div>
 
             <?php
@@ -53,25 +132,28 @@ include "inc/config.php";
             ?> 
          </div>
 
+ <!--   This allows me to print all the emoji to the screen by pulling names from the database. -->
+
         <div class="wrapper">
+
          <?php
+
             ChromePhp::log('Hello console!');
             $db = new PDO("mysql:host=$database_hostname; dbname=$database_name", $database_username, $database_password); 
                
-                            // print("<li><a class='cover' href='" . $_SERVER['PHP_SELF']. "?book_id=" . $row['book_id'] . "'> <img src='img/" . $row['Cover'] . "' alt='" . $row['Name'] . "' /> </a></li>\n");
-                             
-         $statement=$db->prepare('SELECT EmojiCode from emojiname');
+                          
+         $statement=$db->prepare('SELECT emoji from emojiname');
 
          $statement->execute();
 
           while ($row = $statement->fetch()) {
-            if ($row['EmojiCode'] != NULL) {
+            if ($row['emoji'] != NULL) {
                  echo "<a href='", $_SERVER['PHP_SELF'];
-                 echo "?emoji=",  $row['EmojiCode'];
+                 echo "?emoji=",  $row['emoji'];
                  echo "'>";
                  echo"<img src=img/" ;
                
-        echo "{$row['EmojiCode']} \n";
+        echo "{$row['emoji']} \n";
          echo "  height='80px'></a>\n";
          
           }
@@ -81,63 +163,7 @@ include "inc/config.php";
     
             
         </div>
-            <!-- <a href="word.php"><img src="img/emoji10.jpg" height="80px"></a>
-            <img src="img/emoji11.jpg" height="80px";>
-            <img src="img/emoji13.jpg" height="80px";>
-            <img src="img/emoji14.jpg" height="80px";>
-            <img src="img/emoji15.jpg" height="80px";>
-            <img src="img/emoji16.jpg" height="80px";>
-            <img src="img/emoji17.jpg" height="80px";>
-            <img src="img/emoji18.jpg" height="80px";>
-            <img src="img/emoji19.jpg" height="80px";>
-            <img src="img/emoji20.jpg" height="80px";>
-            <img src="img/emoji21.jpg" height="80px";>
-            <img src="img/emoji22.jpg" height="80px";>
-            <img src="img/emoji23.jpg" height="80px";>
-            <img src="img/emoji24.jpg" height="80px";>
-            <img src="img/emoji25.jpg" height="80px";>
-            <img src="img/emoji26.jpg" height="80px";>
-            <img src="img/emoji27.jpg" height="80px";>
-            <img src="img/emoji28.jpg" height="80px";>
-            <img src="img/emoji29.jpg" height="80px";>
-            <img src="img/emoji30.jpg" height="80px";>
-            <img src="img/emoji31.jpg" height="80px";>
-            <img src="img/emoji32.jpg" height="80px";>
-            <img src="img/emoji33.jpg" height="80px";>
-            <img src="img/emoji34.jpg" height="80px";>
-            <img src="img/emoji35.jpg" height="80px";>
-            <img src="img/emoji36.jpg" height="80px";>
-            <img src="img/emoji37.jpg" height="80px";>
-            <img src="img/emoji38.jpg" height="80px";>
-            <img src="img/emoji39.jpg" height="80px";>
-            <img src="img/emoji40.jpg" height="80px";>
-            <img src="img/emoji41.jpg" height="80px";>
-            <img src="img/emoji42.jpg" height="80px";>
-            <img src="img/emoji43.jpg" height="80px";>
-            <img src="img/emoji44.jpg" height="80px";>
-            <img src="img/emoji45.jpg" height="80px";>
-            <img src="img/emoji46.jpg" height="80px";>
-            <img src="img/emoji47.jpg" height="80px";>
-            <img src="img/emoji48.jpg" height="80px";>
-            <img src="img/emoji49.jpg" height="80px";>
-            <img src="img/emoji50.jpg" height="80px";>
-            <img src="img/emoji51.jpg" height="80px";>
-            <img src="img/emoji52.jpg" height="80px";>
-            <img src="img/emoji53.jpg" height="80px";>
-            <img src="img/emoji54.jpg" height="80px";>
-            <img src="img/emoji55.jpg" height="80px";>
-            <img src="img/emoji56.jpg" height="80px";>
-            <img src="img/emoji57.jpg" height="80px";>
-            <img src="img/emoji58.jpg" height="80px";>
-            <img src="img/emoji59.jpg" height="80px";>
-            <img src="img/emoji60.jpg" height="80px";>
-            <img src="img/emoji61.jpg" height="80px";>
-            <img src="img/emoji62.jpg" height="80px";>
-            <img src="img/emoji63.jpg" height="80px";>
-            <img src="img/emoji64.jpg" height="80px";> -->
-
-
-
+            
         
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

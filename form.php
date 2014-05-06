@@ -2,6 +2,8 @@
 session_start();
 date_default_timezone_set( "America/New_York" );
 include "inc/insert.php";
+include "inc/config.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +24,9 @@ include "inc/insert.php";
     </head>
     <body>
        
-       <?php include 'header.php'; ?>
+       <?php include 'header.php'; 
+       $emoji = $_GET['form'];
+       ?>
 <!--this is where the form goes-->
         <div class="imgword">
             
@@ -31,7 +35,7 @@ include "inc/insert.php";
         <div class="formwrapper">
             <img src="img/emoji10.jpg" height="80px">
             <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>"  accept-charset="utf-8">
-               <!--  <input type="hidden" name="EmojiCode" id="SMILING FACE WITH SMILING EYES" readonly="readonly" /> -->
+              
                 <div><p>Noun (person, place or thing)</p>
                      <input type="text" placeholder="dog" name="noun"/>
                 </div>
@@ -39,12 +43,12 @@ include "inc/insert.php";
                       <input type="text" placeholder="to run" name="verb"/>
                 </div>
                 <div><p>Adjective (descriptive word)</p>
-                      <input type="text" placeholder="fluffy" name="adj"/>
+                      <input type="text" placeholder="fluffy" name="adjective"/>
                 </div>
                 <div><br>What does this emoji mean to you?.<br>
                 </div>
                 <div>              
-                    <br><textarea name="def" placeholder="The fluffy dog ran far."> </textarea>
+                    <br><textarea name="define" placeholder="The fluffy dog ran far."> </textarea>
                 </div>
                 <div><br>Please type and example sentence using one or all of the words above.<br>
                 </div>
@@ -54,23 +58,26 @@ include "inc/insert.php";
                 <div class="submit">
                     
                     <br><button type="submit">Submit</button>
+                    <input method="post" type="hidden" value="<?php echo $emoji ?>" name="emoji"/>
                 </div>
             </form> 
             <?php 
                 if( white_list() ) {
+                    $emoji = ( strlen( $_POST["emoji"] ) > 0 ) ?
+            htmlentities( trim( $_POST["emoji"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
                      $noun = ( strlen( $_POST["noun"] ) > 0 ) ?
             htmlentities( trim( $_POST["noun"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
                     $verb = ( strlen( $_POST["verb"] ) > 0 ) ?
             htmlentities( trim( $_POST["verb"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
-                    $adj = ( strlen( $_POST["adj"] ) > 0 ) ?
-            htmlentities( trim( $_POST["adj"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
-                    $def = ( strlen( $_POST["def"] ) > 0 ) ?
-            htmlentities( trim( $_POST["def"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
+                    $adjective = ( strlen( $_POST["adjective"] ) > 0 ) ?
+            htmlentities( trim( $_POST["adjective"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
+                    $define = ( strlen( $_POST["define"] ) > 0 ) ?
+            htmlentities( trim( $_POST["define"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
                     $example = ( strlen( $_POST["example"] ) > 0 ) ?
             htmlentities( trim( $_POST["example"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
 
 
-            insert( $noun, $verb, $adj, $def, $example );
+            insert( $emoji, $noun, $verb, $adjective, $define, $example );
             redirect();
 
                 }

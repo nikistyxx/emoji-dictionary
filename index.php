@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-
+//if this is the first click it takes you to the page home.php with all the emoji
 if( !isset( $_GET['action'] ) ) {
    $_GET['action'] = "register";
    header( "Location: home.php" );
@@ -11,19 +11,16 @@ include "includes/main.php";
 
 if( isset( $_GET['action'] ) )
    if( $_GET['action'] == "login" ) {
-      $action_value = "login.php";
+      header( "?emoji=",  $row['EmojiCode']);
       $subheading = $button_value = "Login";
    }
    else
-      if( $_GET['action'] == "register" ) {
-         $action_value = "register.php";
+      if( $_GET['action'] == "form" ) {
+         header( "?form=",  $row['EmojiCode']);
          $subheading = $button_value = "Register";
       }
-session_start();
-date_default_timezone_set( "America/New_York" );
-include "inc/config.php";
- include "inc/insert.php";
-?>
+ ?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
