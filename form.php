@@ -7,7 +7,7 @@ include "inc/config.php";
 ?>
 
 <!DOCTYPE html>
-<html> 
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,27 +23,27 @@ include "inc/config.php";
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
-       
-       <?php include 'header.php'; 
+
+       <?php include 'header.php';
 //printing the definition to the page
        //  // pullemoji();
        // $emoji = $_GET['form'];
        ?>
 <!--this is where the form goes-->
         <div class="imgword">
-            
+
         </div>
-        
+
         <div class="formwrapper">
               <?php
                 $emoji = $_GET['form'];
-                echo"<img src=img/" ;  
+                echo"<img src=img/" ;
                 echo "$emoji \n";
                 echo "  height='100px'>\n";
 
                 ?>
             <form method="post" action=""  accept-charset="utf-8">
-              
+
                 <div><p>Noun (person, place or thing)</p>
                      <input type="text" placeholder="dog" name="noun"/>
                 </div>
@@ -55,21 +55,21 @@ include "inc/config.php";
                 </div>
                 <div><br>What does this emoji mean to you?<br>
                 </div>
-                <div>              
+                <div>
                     <br><textarea name="define" placeholder="The fluffy dog ran far."> </textarea>
                 </div>
                 <div><br>Please type an example sentence using one or all of the words above.<br>
                 </div>
-                <div>              
+                <div>
                     <br><textarea name="example" placeholder="The fluffy dog ran far."> </textarea>
                 </div>
                 <div class="submit">
-                    
+
                     <br><button type="submit">Submit</button>
                     <input method="post" type="hidden" value="<?php echo $emoji ?>" name="emoji"/>
                 </div>
-            </form> 
-            <?php 
+            </form>
+            <?php
             $emoji = $_GET['form'];
             if( isset( $_POST["emoji"] ) ) {
                 if( white_list() ) {
@@ -78,22 +78,19 @@ include "inc/config.php";
                     $adjective = ( strlen( $_POST["adjective"] ) > 0 ) ? htmlentities( trim( $_POST["adjective"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
                     $define = ( strlen( $_POST["define"] ) > 0 ) ? htmlentities( trim( $_POST["define"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
                     $example = ( strlen( $_POST["example"] ) > 0 ) ? htmlentities( trim( $_POST["example"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
-
-  
             insert( $emoji, $noun, $verb, $adjective, $define, $example );
             // insert1($emoji, $noun);
             redirect();
 
                 }
             }
-        
             ?>
-            
-                <div id="book">
+
+             <div id="book">
                     <br><a href="./"><img src="img/book.jpg" height="60px">Return to Dictionary Home</a>
-                </div>  
+             </div>
         </div>
-       
+
          <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
