@@ -237,7 +237,7 @@ function redirect(){
        ChromePhp::log('print posts works!');
 
         $emoji = $_GET['emoji'];
-      $statement=$db->prepare( "SELECT * FROM  noun WHERE emoji = '$emoji'");
+      $statement=$db->prepare( "SELECT * FROM  nouns WHERE emoji = '$emoji'");
         // foreach ($db->prepare( 'SELECT noun FROM  noun WHERE EmojiCode = ' . $emoji) as $row)
 
        $statement->execute();
@@ -267,7 +267,7 @@ function redirect(){
       
          echo "         </td></tr>\n";
          //verb array
-         $statement=$db->prepare( "SELECT * FROM  verb WHERE emoji = '$emoji'");
+         $statement=$db->prepare( "SELECT * FROM  verbs WHERE emoji = '$emoji'");
           echo "         <tr>\n";
           echo "            <th>Verb</th><td>";
           $statement->execute();
@@ -285,8 +285,8 @@ function redirect(){
           echo "            <th>Adjective</th><td>";
           $statement->execute();
           while ($row = $statement->fetch()) {
-            if ($row['adj'] != NULL) {
-         echo "{$row['adj']}, \n";
+            if ($row['adjective'] != NULL) {
+         echo "{$row['adjective']}, \n";
           }
           }
          echo "         </td></tr>\n";
@@ -298,7 +298,7 @@ function redirect(){
           $statement->execute();
           while ($row = $statement->fetch()) {
            
-         echo"  ". nl2br( $row['def'] ) . " \n";
+         echo"  ". nl2br( $row['define'] ) . " \n";
           
         }
          echo "         </td></tr>\n";

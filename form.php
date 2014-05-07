@@ -35,7 +35,13 @@ include "inc/config.php";
         </div>
         
         <div class="formwrapper">
-            <img src="img/emoji10.jpg" height="80px">
+              <?php
+                $emoji = $_GET['form'];
+                echo"<img src=img/" ;  
+                echo "$emoji \n";
+                echo "  height='100px'>\n";
+
+                ?>
             <form method="post" action=""  accept-charset="utf-8">
               
                 <div><p>Noun (person, place or thing)</p>
