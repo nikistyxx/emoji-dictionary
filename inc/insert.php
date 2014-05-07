@@ -22,16 +22,120 @@ function white_list()
 
 
 //insert into the database
-  function insert( $noun, $verb, $adjective, $define, $example )
+  function insert( $emoji, $noun, $verb, $adjective, $define, $example )
   {
       require "config.php";
       try {
         ChromePhp::log('Hello console!');
          $db = new PDO("mysql:host=$database_hostname; dbname=$database_name", $database_username, $database_password); 
        
-    	 $statement = $db->prepare( "INSERT INTO smilingface (emoji, noun, verb, adjective, define, example) VALUES (:emoji, :noun, :verb, :adjective, :define, :example)" );
+    	 $statement = $db->prepare( "INSERT INTO nouns (emoji, noun) VALUES (:emoji, :noun)" );
     	 
       	 $statement->execute( array(
+           ":emoji" => $emoji,
+             ":noun" => $noun 
+
+             ) );  
+
+   $emoji = $_GET['form'];
+    ChromePhp::log('FML!');
+
+         } 
+
+catch( Exception $error ) {
+      die("Insert failed: " . $error->getMessage());
+   }
+   //verb
+     try {
+        ChromePhp::log('Hello console!');
+         $db = new PDO("mysql:host=$database_hostname; dbname=$database_name", $database_username, $database_password); 
+       
+       $statement = $db->prepare( "INSERT INTO verbs (emoji, verb) VALUES (:emoji, :verb)" );
+       
+         $statement->execute( array(
+           ":emoji" => $emoji,
+             ":verb" => $verb 
+
+             ) );  
+
+  } 
+ catch( Exception $error ) {
+      die("Insert failed: " . $error->getMessage());
+        
+  }
+
+ //adjective
+     try {
+        ChromePhp::log('Hello console!');
+         $db = new PDO("mysql:host=$database_hostname; dbname=$database_name", $database_username, $database_password); 
+       
+       $statement = $db->prepare( "INSERT INTO adjective (emoji, adjective) VALUES (:emoji, :adjective)" );
+       
+         $statement->execute( array(
+           ":emoji" => $emoji,
+             ":adjective" => $adjective 
+
+             ) );  
+
+  } 
+ catch( Exception $error ) {
+      die("Insert failed: " . $error->getMessage());
+        
+  }
+
+ //define
+     try {
+        ChromePhp::log('Hello console!');
+         $db = new PDO("mysql:host=$database_hostname; dbname=$database_name", $database_username, $database_password); 
+       
+       $statement = $db->prepare( "INSERT INTO define (emoji, define) VALUES (:emoji, :define)" );
+       
+         $statement->execute( array(
+           ":emoji" => $emoji,
+             ":define" => $define 
+
+             ) );  
+
+  } 
+ catch( Exception $error ) {
+      die("Insert failed: " . $error->getMessage());
+        
+  }
+
+ //example
+     try {
+        ChromePhp::log('Hello console!');
+         $db = new PDO("mysql:host=$database_hostname; dbname=$database_name", $database_username, $database_password); 
+       
+       $statement = $db->prepare( "INSERT INTO example (emoji, example) VALUES (:emoji, :example)" );
+       
+         $statement->execute( array(
+           ":emoji" => $emoji,
+             ":example" => $example 
+
+             ) );  
+
+  } 
+ catch( Exception $error ) {
+      die("Insert failed: " . $error->getMessage());
+        
+  }
+
+
+  }//function end
+
+
+//insert into the database
+  function insert2( $emoji, $noun, $verb, $adjective, $define, $example )
+  {
+      require "config.php";
+      try {
+        ChromePhp::log('Hello console!');
+         $db = new PDO("mysql:host=$database_hostname; dbname=$database_name", $database_username, $database_password); 
+       
+       $statement = $db->prepare( "INSERT INTO smilingface (emoji, noun, verb, adjective, define, example) VALUES (:emoji, :noun, :verb, :adjective, :define, :example)" );
+       
+         $statement->execute( array(
            ":emoji" => $emoji,
              ":noun" => $noun, 
              ":verb" => $verb,
@@ -39,21 +143,39 @@ function white_list()
              ":define" => $define,
              ":example" => $example
              ) );  
+
+         $emoji = $_GET['form'];
          ChromePhp::log('FML!');
 
-         } 
-
+         }
 catch( Exception $error ) {
       die("Insert failed: " . $error->getMessage());
    }
-  }
 
+      try {
+        ChromePhp::log('Hello console!');
+         $db = new PDO("mysql:host=$database_hostname; dbname=$database_name", $database_username, $database_password); 
+       
+       $statement = $db->prepare( "INSERT INTO nouns (emoji, noun) VALUES (:emoji, :noun)" );
+       
+         $statement->execute( array(
+           ":emoji" => $emoji,
+             ":noun" => $noun 
+
+             ) );  
+
+  } 
+ catch( Exception $error ) {
+      die("Insert failed: " . $error->getMessage());
+        
+  }
+}
 //The whitelist to make sure the noun posts are acurate. 
 function white_listn()
 {
    $state = false;
    $count = 0;
-   $whitelist = array( "emoji", "noun" );
+   $whitelist = array( "noun" );
 
    if( isset( $_POST ) )
       foreach( $_POST as $key => $value )
@@ -96,29 +218,6 @@ catch( Exception $error ) {
   }
 
 
-  //test function!
-
-  function test( $PHP_SELF, $noun )
-  {
-      require "config.php";
-      try {
-        ChromePhp::log('Hello console!');
-         $db = new PDO("mysql:host=$database_hostname; dbname=$database_name", $database_username, $database_password); 
-       
-       $statement = $db->prepare( "INSERT INTO smilingface (EmojiCode, noun) VALUES (smilingface, :noun)" );
-       
-         $statement->execute( array(
-             "PHP_SELF" => PHP_SELF, 
-             ":noun" => $noun, 
-        
-             ) );  
-         ChromePhp::log('FML!');
-         } 
-
-catch( Exception $error ) {
-      die("Insert failed: " . $error->getMessage());
-   }
-  }
 
 //redirecting back home 
 function redirect(){
@@ -226,5 +325,30 @@ function redirect(){
       die("Reading DB failed: " . $error->getMessage());
    }
 }
+
+
+//printing the definition to the page
+function pullemoji() 
+{
+ChromePhp::log('Hello console!');
+$db = new PDO("mysql:host=$database_hostname; dbname=$database_name", $database_username, $database_password); 
+                  
+         $statement=$db->prepare('SELECT emoji from emojiname');
+
+         $statement->execute();
+
+          while ($row = $statement->fetch()) {
+            if ($row['emoji'] != NULL) {
+                 echo "<a href='", $_SERVER['PHP_SELF'];
+                 echo "?emoji=",  $row['emoji'];
+                 echo "'>";
+         
+          }
+        }
+ $statement = null;
+}
+
+
+
     ?>
  

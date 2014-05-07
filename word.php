@@ -28,33 +28,13 @@
 
         </div>
         <div class="wordwrapper">
-            <div class="addword"><a href="form.php"><img src="img/add.jpg" id="addbut"></a>           
+            <div class="addword"><a href="form.php">
+                <img src="img/add.jpg" id="addbut"></a>           
             </div>
                 <?php
                 print_posts();
                 ?> 
-                <!-- <table >
-                    <tr>
-                        <td><h4>Noun</h4></td>
-                        <td>To Blush</td>
-                    </tr>
-                    <tr>
-                        <td><h4>Adjective</h4></td>
-                        <td>Flushed</td>
-                    </tr>
-                    <tr>
-                         <td><h4>Verb</h4></td>
-                        <td>To blush</td>
-                    </tr>
-                    <tr>
-                         <td><h4>Define Sentence</h4></td>
-                        <td>This emoji means to blush or be embaressed. </td>
-                    </tr>
-                    <tr>
-                         <td><h4>Example Sentence</h4></td>
-                        <td>I blushed with pleasure when she brought me flowers.</td>
-                    </tr>
-                </table> -->
+               
             
         </div>
             

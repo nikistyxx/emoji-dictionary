@@ -25,7 +25,9 @@ include "inc/config.php";
     <body>
        
        <?php include 'header.php'; 
-       $emoji = $_GET['form'];
+//printing the definition to the page
+       //  // pullemoji();
+       // $emoji = $_GET['form'];
        ?>
 <!--this is where the form goes-->
         <div class="imgword">
@@ -34,7 +36,7 @@ include "inc/config.php";
         
         <div class="formwrapper">
             <img src="img/emoji10.jpg" height="80px">
-            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>"  accept-charset="utf-8">
+            <form method="post" action=""  accept-charset="utf-8">
               
                 <div><p>Noun (person, place or thing)</p>
                      <input type="text" placeholder="dog" name="noun"/>
@@ -62,25 +64,22 @@ include "inc/config.php";
                 </div>
             </form> 
             <?php 
+            $emoji = $_GET['form'];
+            if( isset( $_POST["emoji"] ) ) {
                 if( white_list() ) {
-                    $emoji = ( strlen( $_POST["emoji"] ) > 0 ) ?
-            htmlentities( trim( $_POST["emoji"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
-                     $noun = ( strlen( $_POST["noun"] ) > 0 ) ?
-            htmlentities( trim( $_POST["noun"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
-                    $verb = ( strlen( $_POST["verb"] ) > 0 ) ?
-            htmlentities( trim( $_POST["verb"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
-                    $adjective = ( strlen( $_POST["adjective"] ) > 0 ) ?
-            htmlentities( trim( $_POST["adjective"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
-                    $define = ( strlen( $_POST["define"] ) > 0 ) ?
-            htmlentities( trim( $_POST["define"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
-                    $example = ( strlen( $_POST["example"] ) > 0 ) ?
-            htmlentities( trim( $_POST["example"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
+                    $noun = ( strlen( $_POST["noun"] ) > 0 ) ? htmlentities( trim( $_POST["noun"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
+                    $verb = ( strlen( $_POST["verb"] ) > 0 ) ? htmlentities( trim( $_POST["verb"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
+                    $adjective = ( strlen( $_POST["adjective"] ) > 0 ) ? htmlentities( trim( $_POST["adjective"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
+                    $define = ( strlen( $_POST["define"] ) > 0 ) ? htmlentities( trim( $_POST["define"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
+                    $example = ( strlen( $_POST["example"] ) > 0 ) ? htmlentities( trim( $_POST["example"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
 
-
+  
             insert( $emoji, $noun, $verb, $adjective, $define, $example );
+            // insert1($emoji, $noun);
             redirect();
 
                 }
+            }
         
             ?>
             

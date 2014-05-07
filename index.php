@@ -11,12 +11,12 @@ include "includes/main.php";
 
 if( isset( $_GET['action'] ) )
    if( $_GET['action'] == "login" ) {
-      header( "?emoji=",  $row['EmojiCode']);
+      header( "?emoji=",  $row['emoji']);
       $subheading = $button_value = "Login";
    }
    else
       if( $_GET['action'] == "form" ) {
-         header( "?form=",  $row['EmojiCode']);
+         header( "?form=",  $row['emoji']);
          $subheading = $button_value = "Register";
       }
  ?>

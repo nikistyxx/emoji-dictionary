@@ -3,7 +3,7 @@ session_start();
 date_default_timezone_set( "America/New_York" );
 include "inc/config.php";
 // include 'inc/ChromePhp.php';
- include "inc/insert.php";
+include "inc/insert.php";
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -30,8 +30,7 @@ include "inc/config.php";
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <?php include 'header.php';
-           ?>
+        <?php include 'header.php'; ?>
 
         <?php
  //This activates the div with the form
@@ -42,17 +41,17 @@ include "inc/config.php";
             <div class="formwrapper">
                 <?php
                 $emoji = $_GET['form'];
-            echo"<img src=img/" ;  
+                echo"<img src=img/" ;  
                 echo "$emoji \n";
                 echo "  height='80px'>\n";
 
                 ?>
-            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>"  accept-charset="utf-8">
-                <input method="post" type="hidden" value="<?php echo $emoji ?>" name="emoji"/>
+            <form method="post" action="process.php"  accept-charset="utf-8">
+                <!-- <input method="post" type="hidden" value="<?php echo $emoji ?>" name="emoji"/> -->
                 <div><p>Noun (person, place or thing)</p>
                      <input type="text" placeholder="dog" name="noun"/>
                 </div>
-                <!-- <div><p>Verb (action word)</p>
+                <div><p>Verb (action word)</p>
                       <input type="text" placeholder="to run" name="verb"/>
                 </div>
                 <div><p>Adjective (descriptive word)</p>
@@ -67,42 +66,17 @@ include "inc/config.php";
                 </div>
                 <div>              
                     <br><textarea name="example" placeholder="The fluffy dog ran far."> </textarea>
-                </div> -->
+                </div>
+                <input method="post" type="hidden" value="<?php echo $emoji ?>" name="emoji"/>
                 <div class="submit">
                     
                     <br><button type="submit">Submit</button>
                 </div>
-            </form> 
-            <?php 
-                if( white_list() ) {
-                    $emoji = ( strlen( $_POST["emoji"] ) > 0 ) ?
-            htmlentities( trim( $_POST["emoji"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
-                     $noun = ( strlen( $_POST["noun"] ) > 0 ) ?
-            htmlentities( trim( $_POST["noun"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
-            //         $verb = ( strlen( $_POST["verb"] ) > 0 ) ?
-            // htmlentities( trim( $_POST["verb"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
-            //         $adjective = ( strlen( $_POST["adjective"] ) > 0 ) ?
-            // htmlentities( trim( $_POST["adjective"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
-            //         $define = ( strlen( $_POST["define"] ) > 0 ) ?
-            // htmlentities( trim( $_POST["define"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
-            //         $example = ( strlen( $_POST["example"] ) > 0 ) ?
-            // htmlentities( trim( $_POST["example"] ), ENT_QUOTES | 'ENT_HTML5', "UTF-8" ) : "";
-
-
-            insertnoun( $emoji, $noun );
-            // redirect();
-
-                }
-            }
-        
-            ?>
-            
-                 
+            </form>         
         </div>
-            
-           
-        
- <?php
+  
+ <?php         
+    }   
  //This activates the div with the info about each emoji or print
                 if (isset($_GET['emoji']))
                     //safe checks? 
@@ -115,18 +89,17 @@ include "inc/config.php";
 
        
                 <?php
-                echo "<a href='", $_SERVER['PHP_SELF'];
-                 echo "?form=",   $_GET['emoji'];
+                echo "<a href='form.php";
+                 echo "?form=", $_GET['emoji'];
                  echo "'>";
                  ?>
                 <img src="img/add.jpg" id="addbut"></a>           
             </div>
 
-            <?php
+<?php
           
                $emoji = $_GET['emoji'];
-                
-                print_posts();
+               print_posts();
 
             }
             ?> 
