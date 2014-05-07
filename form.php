@@ -53,12 +53,12 @@ include "inc/config.php";
                 <div><p>Adjective (descriptive word)</p>
                       <input type="text" placeholder="fluffy" name="adjective"/>
                 </div>
-                <div><br>What does this emoji mean to you?.<br>
+                <div><br>What does this emoji mean to you?<br>
                 </div>
                 <div>              
                     <br><textarea name="define" placeholder="The fluffy dog ran far."> </textarea>
                 </div>
-                <div><br>Please type and example sentence using one or all of the words above.<br>
+                <div><br>Please type an example sentence using one or all of the words above.<br>
                 </div>
                 <div>              
                     <br><textarea name="example" placeholder="The fluffy dog ran far."> </textarea>
