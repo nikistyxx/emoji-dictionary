@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 //if this is the first click it takes you to the page home.php with all the emoji
 if( !isset( $_GET['action'] ) ) {
    $_GET['action'] = "register";
@@ -24,7 +23,7 @@ if( isset( $_GET['action'] ) )
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="X-UA-Compatible">
         <title>Emoji Dictionary</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
